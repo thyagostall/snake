@@ -1,0 +1,28 @@
+{
+  "name": "snake",
+  "version": "0.0.1",
+  "description": "A Snake game created with P5.js",
+  "main": "src/index.js",
+  "dependencies": {
+    "p5": "^0.5.7"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "typescript": "^2.1.6"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thyagostall/snake.git"
+  },
+  "author": "Thyago Stall <thstall@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thyagostall/snake/issues"
+  },
+  "homepage": "https://github.com/thyagostall/snake#readme"
+}
