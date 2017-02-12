@@ -32,13 +32,10 @@ function draw() {
 function keyPressed() {
 	if (keyCode === UP_ARROW) {
 		snake.goUp();
-		snake.dir(0, -1);
 	} else if (keyCode === DOWN_ARROW) {
 		snake.goDown();
-		snake.dir(0, 1);
 	} else if (keyCode === RIGHT_ARROW) {
 		snake.goRight();
-		snake.dir(1, 0);
 	} else if (keyCode === LEFT_ARROW) {
 		snake.goLeft();
 	}

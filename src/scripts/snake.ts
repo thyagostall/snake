@@ -46,19 +46,52 @@ class Snake {
 		this.ySpeed = y;
 	}
 
-	public goUp() {
-		this.dir(0, -1);
+	public isGoingUp(): boolean {
+		console.log(this.ySpeed === -1);
+		return this.ySpeed === -1;
+	}
+
+	public isGoingDown(): boolean {
+		return this.ySpeed === 1;
+	}
+
+	public isGoingLeft(): boolean {
+		return this.xSpeed === -1;
+	}
+
+	public isGoingRight(): boolean {
+		return this.xSpeed === 1;
 	}	
 
+	public goUp() {
+		if (this.isGoingDown()) {
+			return;
+		}
+
+		this.dir(0, -1);
+	}
+
 	public goDown() {
+		if (this.isGoingUp()) {
+			return;
+		}
+
 		this.dir(0, 1);
 	}
 
 	public goRight() {
+		if (this.isGoingLeft()) {
+			return;
+		}
+
 		this.dir(1, 0);
 	}
 
 	public goLeft() {
+		if (this.isGoingRight()) {
+			return;
+		}
+
 		this.dir(-1, 0);
 	}	
 
