@@ -26,10 +26,11 @@ function reset() {
 
 function draw() {
 	if (didGameOver) {
+		drawGameOver();
 		return;
 	}
 
-	background(51, 51, 51);	
+	background(51);
 	
 	food.draw();	
 	snake.draw();
@@ -41,9 +42,16 @@ function draw() {
 
 	if (snake.isIntersectingItself()) {
 		didGameOver = true;
+		return;
 	}
 
 	snake.update(grid);
+}
+
+function drawGameOver() {
+	background(51, 0, 0);
+	snake.draw();
+	food.draw();
 }
 
 function keyPressed() {

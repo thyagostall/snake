@@ -37,7 +37,7 @@ class Snake {
 		fill(255);
 		for (let i = this.tail.length - 1; i >= 0; i--) {
 			let pos = this.tail[i];
-			!i && fill(0, 255, 255);			
+			!i && fill(44, 233, 212);			
 			rect(this.tail[i].x * this.side, this.tail[i].y * this.side, this.side, this.side);
 		}
 	}

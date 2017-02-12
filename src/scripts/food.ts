@@ -5,7 +5,7 @@ class Food {
 		let x = this.x * this.size;
 		let y = this.y * this.size;
 
-		fill(255, 0, 0);
+		fill(200, 33, 56);
 		rect(x, y, this.size, this.size);
 	}
 
