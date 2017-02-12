@@ -1,5 +1,5 @@
 const GRID_SIZE = 20;
-const LINES_COLUMNS_GRID_QTY = 40;
+const LINES_COLUMNS_GRID_QTY = 15;
 
 let snake: Snake;
 let grid: Grid;
@@ -9,10 +9,7 @@ function setup() {
 	grid = new Grid(GRID_SIZE)
 	grid.draw(LINES_COLUMNS_GRID_QTY, LINES_COLUMNS_GRID_QTY);
 
-	snake = new Snake(grid.size);
-	snake.x = 40;
-	snake.y = 40;
-
+	snake = new Snake(2, 2, grid.size);
 	food = Food.createRandom(grid.size, LINES_COLUMNS_GRID_QTY);
 
 	frameRate(10);
@@ -20,9 +17,15 @@ function setup() {
 
 function draw() {
 	background(51, 51, 51);	
-	snake.draw();
+	
 	food.draw();	
-	snake.update();
+	snake.draw();
+
+	if (snake.canEatFood(food)) {
+		snake.eat(food);
+		food = Food.createRandom(grid.size, LINES_COLUMNS_GRID_QTY);
+	}
+	snake.update(LINES_COLUMNS_GRID_QTY);
 }
 
 function keyPressed() {

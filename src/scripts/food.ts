@@ -12,9 +12,7 @@ class Food {
 	public static createRandom(size: number, gridQty: number): Food {
 		let x = floor(random(gridQty));
 		let y = floor(random(gridQty));
-
-		console.log(x, y);
-
+		
 		return new Food(x, y, size);
 	}
 }
