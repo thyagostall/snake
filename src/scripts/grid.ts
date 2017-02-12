@@ -6,6 +6,14 @@ class Grid {
 		return this._size;
 	} 
 
+	get rows(): number {
+		return this._rowQty;
+	}
+
+	get cols(): number {
+		return this._colQty;
+	}	
+
 	constructor(private _size: number) { }
 
 	public draw(rowQty: number, colQty: number) {

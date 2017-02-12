@@ -9,10 +9,10 @@ class Food {
 		rect(x, y, this.size, this.size);
 	}
 
-	public static createRandom(size: number, gridQty: number): Food {
-		let x = floor(random(gridQty));
-		let y = floor(random(gridQty));
-		
-		return new Food(x, y, size);
+	public static createRandom(grid: Grid): Food {
+		let x = floor(random(grid.rows));
+		let y = floor(random(grid.cols));
+
+		return new Food(x, y, grid.size);
 	}
 }

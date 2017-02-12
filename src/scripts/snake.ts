@@ -2,7 +2,6 @@ class Snake {
 	private xSpeed = 1;
 	private ySpeed = 0;
 	
-	private length = 1;	
 	private tail = [];
 
 	constructor(
@@ -13,17 +12,15 @@ class Snake {
 		this.tail.push({x: x, y: y});
 	}
 
-	public update(max: number) {
-		console.log(this.length, this.tail.length);
-
+	public update(grid: Grid) {
 		for (let i = this.tail.length - 1; i > 0; i--) {
 			let x = this.tail[i - 1].x;
 			let y = this.tail[i - 1].y; 
 			this.tail[i] = {x: x, y: y};
 		}
 		
-		this.tail[0].x = this.constraintPosition(this.tail[0].x, this.xSpeed, max);
-		this.tail[0].y = this.constraintPosition(this.tail[0].y, this.ySpeed, max);
+		this.tail[0].x = this.constraintPosition(this.tail[0].x, this.xSpeed, grid.rows);
+		this.tail[0].y = this.constraintPosition(this.tail[0].y, this.ySpeed, grid.cols);
 	}
 
 	private constraintPosition(pos: number, speed: number, max: number) {
@@ -44,10 +41,26 @@ class Snake {
 		}
 	}
 
-	public dir(x, y) {
+	private dir(x, y) {
 		this.xSpeed = x;
 		this.ySpeed = y;
 	}
+
+	public goUp() {
+		this.dir(0, -1);
+	}	
+
+	public goDown() {
+		this.dir(0, 1);
+	}
+
+	public goRight() {
+		this.dir(1, 0);
+	}
+
+	public goLeft() {
+		this.dir(-1, 0);
+	}	
 
 	public canEatFood(food: Food) {
 		let distX = abs(this.tail[0].x - food.x);
@@ -57,7 +70,6 @@ class Snake {
 	}
 
 	public eat(food: Food) {
-		this.length++;
 		this.tail.push({});
 	}
 }
