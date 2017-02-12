@@ -34,10 +34,11 @@ class Snake {
 	}
 
 	public draw() {
-		fill(255);
+		fill(0, 255, 255);
 		
 		for (let pos of this.tail) {
 			rect(pos.x * this.side, pos.y * this.side, this.side, this.side);
+			fill(255);
 		}
 	}
 
