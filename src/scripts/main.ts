@@ -1,6 +1,6 @@
 const GRID_SIZE = 20;
-const LINES_QTY = 40;
-const COLUMNS_QTY = 40;
+const LINES_QTY = 23;
+const COLUMNS_QTY = 23;
 
 let snake: Snake;
 let grid: Grid;

@@ -17,7 +17,8 @@ class Grid {
 	constructor(private _size: number) { }
 
 	public draw(rowQty: number, colQty: number) {
-		createCanvas(rowQty * this._size, colQty * this._size);
+		let canvas = createCanvas(rowQty * this._size, colQty * this._size);
+		canvas.parent("game");
 
 		this._rowQty = rowQty;
 		this._colQty = colQty;
