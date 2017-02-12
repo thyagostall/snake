@@ -34,12 +34,28 @@ class Snake {
 	}
 
 	public draw() {
-		fill(0, 255, 255);
-		
-		for (let pos of this.tail) {
-			rect(pos.x * this.side, pos.y * this.side, this.side, this.side);
-			fill(255);
+		fill(255);
+		for (let i = this.tail.length - 1; i >= 0; i--) {
+			let pos = this.tail[i];
+			!i && fill(0, 255, 255);			
+			rect(this.tail[i].x * this.side, this.tail[i].y * this.side, this.side, this.side);
 		}
+	}
+
+	private static intersect(a, b) {
+		let distX = abs(a.x - b.x);
+		let distY = abs(a.y - b.y);
+
+		return (distX < 1 && distY < 1);		
+	}
+
+	public isIntersectingItself(): boolean {
+		for (let i = 1; i < this.tail.length; i++) {
+			if (Snake.intersect(this.tail[0], this.tail[i])) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private dir(x, y) {
@@ -48,7 +64,6 @@ class Snake {
 	}
 
 	public isGoingUp(): boolean {
-		console.log(this.ySpeed === -1);
 		return this.ySpeed === -1;
 	}
 
